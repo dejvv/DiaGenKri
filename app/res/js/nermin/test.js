@@ -79,10 +79,21 @@ function setNode(node) {
         }
         btn.classList.add('btn');
         btn.classList.add('btn-block');
-        btn.classList.add('btn-info');
+        btn.classList.add('btn-primary');
         btn.innerHTML = conns[i].text.attr("text");
         btn.addEventListener('click', restart);
         testdiv.appendChild(btn);
+    }
+    // alert(set[0].data("subtree_height"));
+    try {
+        const progress = document.getElementById("myBar");
+        // const width =  (100 / set[0].data("subtree_height"));
+        const width = (100 / tree_vertices[node.id].height);
+        console.log("HEHEHEHEHEHEHE:", node.id + ", " + width, tree_vertices[node.id].height);
+        progress.style.width = width + "%"; 
+        // progress.innerHTML = Math.round(width) + "%";
+    } catch(err){
+        console.log(err);
     }
 
     $("#testmodal").modal();
